@@ -1,7 +1,7 @@
 """Light theme preset for PyLage Layout."""
 
 from .factory import create_theme
-from tokens import COLORS
+from ..tokens import COLORS
 
 
 LIGHT_COLORS = {

@@ -2,9 +2,9 @@
 
 from typing import Any
 
-from layouts import Container, Stack
-from patterns import Hero, FeatureSection, StatsSection, PricingSection, CTA
-from layouts import Footer
+from ..layouts import Container, Stack
+from ..patterns import Hero, FeatureSection, StatsSection, PricingSection, CTA
+from ..layouts import Footer
 
 
 def LandingPage(

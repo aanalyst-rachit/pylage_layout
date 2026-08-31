@@ -48,12 +48,27 @@ REQUIRED_FONT_TOKENS = {
 
 def validate_tokens(
     *,
-    colors: Mapping[str, object],
-    spacing: Mapping[str, object],
-    radius: Mapping[str, object],
-    fonts: Mapping[str, object],
+    colors: Mapping[str, object] | None = None,
+    spacing: Mapping[str, object] | None = None,
+    radius: Mapping[str, object] | None = None,
+    fonts: Mapping[str, object] | None = None,
 ) -> None:
-    """Validate that all required design tokens are present."""
+    """Validate design tokens, defaulting to the package token collections."""
+    if colors is None:
+        from .colors import COLORS
+        colors = COLORS
+
+    if spacing is None:
+        from .spacing import SPACING
+        spacing = SPACING
+
+    if radius is None:
+        from .radius import RADIUS
+        radius = RADIUS
+
+    if fonts is None:
+        from .fonts import FONTS
+        fonts = FONTS
     _validate_section("colors", colors, REQUIRED_COLOR_TOKENS)
     _validate_section("spacing", spacing, REQUIRED_SPACING_TOKENS)
     _validate_section("radius", radius, REQUIRED_RADIUS_TOKENS)

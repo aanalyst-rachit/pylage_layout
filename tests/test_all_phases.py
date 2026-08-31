@@ -66,11 +66,11 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     token_modules = [
-        "tokens.colors",
-        "tokens.fonts",
-        "tokens.radius",
-        "tokens.spacing",
-        "tokens.validate",
+        "pylage_layout.tokens.colors",
+        "pylage_layout.tokens.fonts",
+        "pylage_layout.tokens.radius",
+        "pylage_layout.tokens.spacing",
+        "pylage_layout.tokens.validate",
     ]
 
     for module_name in token_modules:
@@ -78,7 +78,7 @@ def test_phase_1_to_7_complete():
         assert module is not None
 
     # Token package itself must import.
-    tokens = _import("tokens")
+    tokens = _import("pylage_layout.tokens")
     assert tokens is not None
 
     # ================================================================
@@ -86,11 +86,11 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     theme_modules = [
-        "themes.api",
-        "themes.dark",
-        "themes.factory",
-        "themes.light",
-        "themes",
+        "pylage_layout.themes.api",
+        "pylage_layout.themes.dark",
+        "pylage_layout.themes.factory",
+        "pylage_layout.themes.light",
+        "pylage_layout.themes",
     ]
 
     for module_name in theme_modules:
@@ -105,21 +105,21 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     layout_modules = [
-        "layouts.center",
-        "layouts.container",
-        "layouts.section",
-        "layouts.stack",
-        "layouts.split",
-        "layouts.two_column",
-        "layouts.three_column",
-        "layouts.sidebar",
+        "pylage_layout.layouts.center",
+        "pylage_layout.layouts.container",
+        "pylage_layout.layouts.section",
+        "pylage_layout.layouts.stack",
+        "pylage_layout.layouts.split",
+        "pylage_layout.layouts.two_column",
+        "pylage_layout.layouts.three_column",
+        "pylage_layout.layouts.sidebar",
     ]
 
     for module_name in layout_modules:
         module = _import(module_name)
         assert module is not None
 
-    layouts = _import("layouts")
+    layouts = _import("pylage_layout.layouts")
 
     # Required high-level layout API.
     required_layout_exports = [
@@ -168,16 +168,16 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     phase4_modules = [
-        "layouts.drawer",
-        "layouts.footer",
-        "layouts.header",
-        "layouts.menu",
-        "layouts.navbar",
-        "layouts.navigation",
-        "layouts.navigation_controls",
-        "layouts.pagination",
-        "layouts.tabs",
-        "layouts.topbar",
+        "pylage_layout.layouts.drawer",
+        "pylage_layout.layouts.footer",
+        "pylage_layout.layouts.header",
+        "pylage_layout.layouts.menu",
+        "pylage_layout.layouts.navbar",
+        "pylage_layout.layouts.navigation",
+        "pylage_layout.layouts.navigation_controls",
+        "pylage_layout.layouts.pagination",
+        "pylage_layout.layouts.tabs",
+        "pylage_layout.layouts.topbar",
     ]
 
     for module_name in phase4_modules:
@@ -190,11 +190,11 @@ def test_phase_1_to_7_complete():
     assert hasattr(layouts, "Pagination")
 
     # Specific modules must expose their expected high-level APIs.
-    drawer = _import("layouts.drawer")
-    header = _import("layouts.header")
-    footer = _import("layouts.footer")
-    navbar = _import("layouts.navbar")
-    topbar = _import("layouts.topbar")
+    drawer = _import("pylage_layout.layouts.drawer")
+    header = _import("pylage_layout.layouts.header")
+    footer = _import("pylage_layout.layouts.footer")
+    navbar = _import("pylage_layout.layouts.navbar")
+    topbar = _import("pylage_layout.layouts.topbar")
 
     assert hasattr(drawer, "NavigationDrawer")
     assert hasattr(drawer, "MobileSidebar")
@@ -208,28 +208,28 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     pattern_modules = [
-        "patterns.auth",
-        "patterns.breadcrumbs",
-        "patterns.contact",
-        "patterns.content",
-        "patterns.cta",
-        "patterns.faq",
-        "patterns.feature",
-        "patterns.hero",
-        "patterns.list",
-        "patterns.newsletter",
-        "patterns.pricing",
-        "patterns.search",
-        "patterns.states",
-        "patterns.stats",
-        "patterns.testimonial",
+        "pylage_layout.patterns.auth",
+        "pylage_layout.patterns.breadcrumbs",
+        "pylage_layout.patterns.contact",
+        "pylage_layout.patterns.content",
+        "pylage_layout.patterns.cta",
+        "pylage_layout.patterns.faq",
+        "pylage_layout.patterns.feature",
+        "pylage_layout.patterns.hero",
+        "pylage_layout.patterns.list",
+        "pylage_layout.patterns.newsletter",
+        "pylage_layout.patterns.pricing",
+        "pylage_layout.patterns.search",
+        "pylage_layout.patterns.states",
+        "pylage_layout.patterns.stats",
+        "pylage_layout.patterns.testimonial",
     ]
 
     for module_name in pattern_modules:
         module = _import(module_name)
         assert module is not None
 
-    patterns = _import("patterns")
+    patterns = _import("pylage_layout.patterns")
     assert patterns is not None
 
     # ================================================================
@@ -237,21 +237,21 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     template_modules = [
-        "templates.landing",
-        "templates.dashboard",
-        "templates.admin",
-        "templates.admin_panel",
-        "templates.authentication",
-        "templates.profile",
-        "templates.settings",
-        "templates.documentation",
+        "pylage_layout.templates.landing",
+        "pylage_layout.templates.dashboard",
+        "pylage_layout.templates.admin",
+        "pylage_layout.templates.admin_panel",
+        "pylage_layout.templates.authentication",
+        "pylage_layout.templates.profile",
+        "pylage_layout.templates.settings",
+        "pylage_layout.templates.documentation",
     ]
 
     for module_name in template_modules:
         module = _import(module_name)
         assert module is not None
 
-    templates = _import("templates")
+    templates = _import("pylage_layout.templates")
     assert templates is not None
 
     # ================================================================
@@ -324,11 +324,11 @@ def test_phase_1_to_7_complete():
     # ================================================================
 
     expected_directories = [
-        ROOT / "layouts",
-        ROOT / "patterns",
-        ROOT / "templates",
-        ROOT / "themes",
-        ROOT / "tokens",
+        ROOT / "pylage_layout" / "layouts",
+        ROOT / "pylage_layout" / "patterns",
+        ROOT / "pylage_layout" / "templates",
+        ROOT / "pylage_layout" / "themes",
+        ROOT / "pylage_layout" / "tokens",
         ROOT / "app",
     ]
 

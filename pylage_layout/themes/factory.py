@@ -2,7 +2,7 @@
 
 from pylage import Theme
 
-from tokens import COLORS, FONTS, RADIUS, SPACING
+from ..tokens import COLORS, FONTS, RADIUS, SPACING
 
 
 def create_theme(

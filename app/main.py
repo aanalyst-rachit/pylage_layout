@@ -1,6 +1,6 @@
 import pylage as pl
 
-from layout import build_layout
+from layouts.layout import build_layout
 
 
 app = build_layout()

@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layouts import Container, Stack
+from ..layouts import Container, Stack
 from pylage.components import (
     Row,
     Column,

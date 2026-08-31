@@ -1,3 +1,4 @@
+from .app_shell import AppShell
 """Layout primitives for PyLage Layout."""
 
 from .center import Center
@@ -12,6 +13,7 @@ from .split import Split
 from .stack import Stack
 
 __all__ = [
+    "AppShell",
     "Center",
     "Container",
     "Footer",

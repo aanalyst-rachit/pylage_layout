@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layouts import Container
+from ..layouts import Container
 from pylage.components import (
     Button,
     Card,
