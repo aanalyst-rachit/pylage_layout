@@ -26,5 +26,8 @@ __all__ = [
 ]
 from .drawer import MobileSidebar, NavigationDrawer
 
-from .tabs import TabsLayout
 from .menu import MenuLayout, SelectLayout
+
+from .tabs import TabLayout
+
+from .pagination import PaginationLayout
