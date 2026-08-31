@@ -461,100 +461,11 @@ patterns
 
 PyLage's existing responsive system must be reused.
 
-Phase 7 is responsible for making public `pylage_layout` layouts responsive
-through composition with PyLage's existing `ResponsiveStyle` capability.
+Every public layout must explicitly define:
 
-## 7A — PyLage Responsive Capability Audit
-
-Status: ✅ PASS
-
-Confirmed PyLage provides:
-
-* `ResponsiveStyle`
-* `Style`
-* `sm` breakpoint at `640px`
-* `md` breakpoint at `768px`
-* `lg` breakpoint at `1024px`
-* `xl` breakpoint at `1280px`
-
-PyLage owns the responsive engine.
-
-`pylage_layout` must not create a duplicate responsive engine.
-
-## 7B — Existing Layout Responsive Audit
-
-Status: ✅ COMPLETE
-
-Existing layouts were audited for responsive capability.
-
-Findings:
-
-* Most layouts currently use static `Style` definitions.
-* `NavigationDrawer` / `MobileSidebar` reuse PyLage's responsive-capable Drawer.
-* `ThreeColumn` currently has a responsive-oriented composition but does not
-  yet explicitly use `ResponsiveStyle`.
-* `SidebarLayout` currently uses fixed sidebar sizing and requires responsive
-  behavior.
-* Container, Stack, Split, TwoColumn, Header, Footer, Navbar and Topbar
-  require explicit responsive contracts where applicable.
-
-## 7C — Responsive Layout Contract
-
-Status: ⏳ IN PROGRESS
-
-Every public layout that requires responsive behavior must define:
-
-* Mobile/base behavior
-* Tablet behavior where required
-* Desktop behavior where required
-* Breakpoint-specific overrides using PyLage `ResponsiveStyle`
-* Stable layout structure across breakpoints
-* No duplicated responsive engine
-
-Responsive behavior must be implemented using PyLage primitives.
-
-## 7D — Core Layout Responsiveness
-
-Status: ⏳ PENDING
-
-Audit and implement responsive behavior for:
-
-* Container
-* Stack
-* Split
-* TwoColumn
-* ThreeColumn
-* SidebarLayout
-
-## 7E — Navigation Responsiveness
-
-Status: ⏳ PENDING
-
-Audit and implement responsive behavior for:
-
-* Navbar
-* Topbar
-* Header
-* Footer
-* NavigationDrawer
-* MobileSidebar
-
-## 7F — Responsive Composition Tests
-
-Status: ⏳ PENDING
-
-Test:
-
-* responsive style construction
-* breakpoint overrides
-* mobile behavior
-* tablet behavior
-* desktop behavior
-* layout composition
-* regression cases
-
-Tests must verify behavior introduced by `pylage_layout`, not duplicate
-PyLage framework tests.
+* Desktop
+* Tablet
+* Mobile
 
 Responsive behavior must be designed during implementation.
 
@@ -751,28 +662,17 @@ The reusable `pylage_layout` system is not yet implemented.
 
 # 19. Current Next Step
 
-Phase 6 page templates are complete.
+Do not start building random layouts.
 
-Phase 7 has now started.
+First complete:
 
-Completed:
+Phase 0D — Public API Rules
+Phase 0E — Testing Rules
+Phase 0F — Documentation Rules
 
-* Phase 7A — PyLage Responsive Capability Audit
-* Phase 7B — Existing Layout Responsive Audit
+Then begin:
 
-Current step:
-
-* Phase 7C — Responsive Layout Contract
-
-After the contract is locked:
-
-* Phase 7D — Core Layout Responsiveness
-* Phase 7E — Navigation Responsiveness
-* Phase 7F — Responsive Composition Tests
-
-Do not create a new responsive engine.
-
-Reuse PyLage `ResponsiveStyle`.
+Phase 1 — Design Tokens
 
 ---
 

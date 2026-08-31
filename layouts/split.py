@@ -2,19 +2,27 @@
 
 from typing import Any
 
-from pylage import Row, Style
+from pylage import Row, Style, ResponsiveStyle
 
 
-DEFAULT_SPLIT_STYLE = Style(
-    display="flex",
-    flex_direction="row",
-    width="100%",
-    gap="1rem",
+DEFAULT_SPLIT_STYLE = ResponsiveStyle(
+    base=Style(
+        display="flex",
+        width="100%",
+        flex_direction="column",
+        gap="1rem",
+    ),
+    md=Style(
+        flex_direction="row",
+    ),
+    lg=Style(
+        gap="2rem",
+    ),
 )
 
 
 def Split(*children: Any, **props: Any):
-    """Create a horizontal split layout."""
+    """Create a responsive split layout."""
     style = props.pop("style", None)
 
     if style is None:

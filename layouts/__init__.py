@@ -23,6 +23,8 @@ __all__ = [
     "SidebarLayout",
     "Split",
     "Stack",
+    "TwoColumn",
+    "ThreeColumn",
 ]
 from .drawer import MobileSidebar, NavigationDrawer
 
@@ -31,3 +33,6 @@ from .menu import MenuLayout, SelectLayout
 from .tabs import TabLayout
 
 from .pagination import PaginationLayout
+
+from .two_column import TwoColumn
+from .three_column import ThreeColumn

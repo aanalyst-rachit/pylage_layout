@@ -2,19 +2,27 @@
 
 from typing import Any
 
-from pylage import Column, Style
+from pylage import Column, Style, ResponsiveStyle
 
 
-DEFAULT_STACK_STYLE = Style(
-    display="flex",
-    flex_direction="column",
-    width="100%",
-    gap="1rem",
+DEFAULT_STACK_STYLE = ResponsiveStyle(
+    base=Style(
+        display="flex",
+        width="100%",
+        flex_direction="column",
+        gap="1rem",
+    ),
+    md=Style(
+        flex_direction="row",
+    ),
+    lg=Style(
+        gap="2rem",
+    ),
 )
 
 
 def Stack(*children: Any, **props: Any):
-    """Create a vertical stack with consistent spacing."""
+    """Create a responsive stack layout."""
     style = props.pop("style", None)
 
     if style is None:

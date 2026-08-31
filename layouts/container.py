@@ -2,18 +2,27 @@
 
 from typing import Any
 
-from pylage import Column, Style
+from pylage import Column, Style, ResponsiveStyle
 
 
-DEFAULT_CONTAINER_STYLE = Style(
-    max_width="1200px",
-    margin="0 auto",
-    width="100%",
+DEFAULT_CONTAINER_STYLE = ResponsiveStyle(
+    base=Style(
+        width="100%",
+        flex_direction="column",
+        max_width="1200px",
+        margin="0 auto",
+    ),
+    md=Style(
+        flex_direction="row",
+    ),
+    lg=Style(
+        gap="2rem",
+    ),
 )
 
 
 def Container(*children: Any, **props: Any):
-    """Create a centered, width-constrained page container."""
+    """Create a centered, width-constrained responsive page container."""
     style = props.pop("style", None)
 
     if style is None:

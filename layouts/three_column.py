@@ -1,20 +1,40 @@
-"""Three-column layout for PyLage Layout."""
+"""Three-column responsive layout for PyLage Layout."""
 
 from typing import Any
 
-from pylage import Row, Style
+from pylage import Row, Style, ResponsiveStyle
+
+
+DEFAULT_THREE_COLUMN_STYLE = ResponsiveStyle(
+    base=Style(
+        display="flex",
+        flex_direction="column",
+        gap="1rem",
+        width="100%",
+    ),
+    md=Style(
+        flex_direction="row",
+    ),
+    lg=Style(
+        gap="2rem",
+    ),
+)
 
 
 def ThreeColumn(*children: Any, **props: Any):
-    """Create a responsive three-column layout."""
-    class_name = props.pop("class_name", "three-column")
+    """Create a responsive three-column layout.
 
-    style = Style(
-        display="flex",
-        flex_direction="row",
-        gap="1rem",
-        width="100%",
-    )
+    Mobile:
+        Columns stack vertically.
+
+    Tablet/Desktop:
+        Columns are arranged horizontally.
+    """
+    class_name = props.pop("class_name", "three-column")
+    style = props.pop("style", None)
+
+    if style is None:
+        style = DEFAULT_THREE_COLUMN_STYLE
 
     return Row(
         *children,
@@ -24,4 +44,7 @@ def ThreeColumn(*children: Any, **props: Any):
     )
 
 
-__all__ = ["ThreeColumn"]
+__all__ = [
+    "ThreeColumn",
+    "DEFAULT_THREE_COLUMN_STYLE",
+]
